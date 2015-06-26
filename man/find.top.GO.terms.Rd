@@ -54,7 +54,7 @@ a character vector giving the \emph{p}-values from a hypergeometric test.\cr
 Li JJ, Huang H, Bickel PJ, & Brenner SE (2014). Comparison of \emph{D. melanogaster} and \emph{C. elegans} developmental stages, tissues, and cells by modENCODE RNA-seq data. \emph{Genome Research}, 24(7), 1086-1101.
 }
 \author{
-Jingyi Jessica Li, Wei Li
+Jingyi Jessica Li, Wei Vivian Li
 }
 
 

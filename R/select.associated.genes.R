@@ -1,7 +1,7 @@
 select.associated.genes <-
-function(sp_gene_expr,z_thre=1.5,FPKM_thre=1, save = TRUE, 
+function(sp_gene_expr,z_thre=1.5, save = TRUE, 
                                   plot_distribution = FALSE){
-  sp_associated_idx <- sp.associated.idx(sp_gene_expr,z_thre,FPKM_thre)
+  sp_associated_idx <- sp.associated.idx(sp_gene_expr,z_thre)
   sp_associated_genes_all <- sapply( sp_associated_idx, FUN=function(x) unique(sp_gene_expr[x,1]) )
   
   if (plot_distribution==TRUE) {
@@ -26,7 +26,7 @@ function(sp_gene_expr,z_thre=1.5,FPKM_thre=1, save = TRUE,
       for (i in 2:nrow(num)){
         legend <- c(legend , paste(sub.bar[i-1],"< num <=",sub.bar[i]))
       }
-    main=paste("Number of associated genes\n", "( z_thre=",z_thre,"," , "FPKM_thre=",FPKM_thre,")")
+    main=paste("Number of associated genes\n", "( z_thre=",z_thre, ")")
     barplot(num, names.arg=colnames(sp_gene_expr)[2:ncol(sp_gene_expr)], las=2,
             cex.names=0.7, 
             main=main,

@@ -188,7 +188,7 @@ Li JJ, Huang H, Bickel PJ, & Brenner SE (2014). Comparison of \emph{D. melanogas
 \url{https://gist.github.com/nachocab/3853004}
 }
 \author{
-Jingyi Jessica Li, Wei Li
+Jingyi Jessica Li, Wei Vivian Li
 }
 
 
@@ -206,7 +206,7 @@ Jingyi Jessica Li, Wei Li
 \dontrun{
 load("dm_gene_expr.rda")
 dm_trom <- ws.trom(sp_gene_expr = dm_gene_expr, z_thre = 1.5, 
-                   FPKM_thre = 1, provide = FALSE)
+                   provide = FALSE)
                      
 ## Draw heatmap without dendrogram
 pdf("D. melanogaster Stage Mapping (without dendrogram).pdf", width = 10, height =8)

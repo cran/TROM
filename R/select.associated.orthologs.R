@@ -1,5 +1,5 @@
 select.associated.orthologs <-
-function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5, FPKM_thre=1, i, save = TRUE,
+function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5,  i, save = TRUE,
                                         plot_distribution = FALSE){
   
   sp_ortholog_data <- t( sapply(sp1_sp2_orthologs[,i], FUN=function(x) sp_gene_expr[which(sp_gene_expr[,1]==as.character(x)),]) )
@@ -7,7 +7,10 @@ function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5, FPKM_thre=1, i, save = TRU
   sp_genes <- as.character(sp_ortholog_data[,1])
   
   sp_ortholog_z<-sp.ortholog.z(sp1_sp2_orthologs,sp_gene_expr,1)
-  sp_specific_idx <- sapply(2:ncol(sp_ortholog_z), FUN=function(i) which(sp_ortholog_z[,i]>z_thre & sp_ortholog_data[,i]>FPKM_thre), simplify=FALSE)
+  Ind1 <- apply(sp_ortholog_data[,2:ncol(sp_ortholog_data)], 1, function(r){
+    sum(unlist(r))>0
+  })
+  sp_specific_idx <- sapply(2:ncol(sp_ortholog_z), FUN=function(i) which(sp_ortholog_z[,i]>z_thre & Ind1), simplify=FALSE)
   
   sp_specific_genes_w_orth <- sapply( sp_specific_idx, FUN=function(x) unique(sp_genes[x]) )
   
@@ -32,7 +35,7 @@ function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5, FPKM_thre=1, i, save = TRU
       for (i in 2:nrow(num)){
         legend <- c(legend, paste(sub.bar[i-1],"< num <=",sub.bar[i]))
       }
-      main=paste("Number of associated orthologous genes\n", "( z_thre=",z_thre,"," , "FPKM_thre=",FPKM_thre,")")
+      main=paste("Number of associated orthologous genes\n", "( z_thre=",z_thre,")")
     barplot(num, names.arg=colnames(sp_gene_expr)[2:ncol(sp_gene_expr)], las=2,
             cex.names=0.7, main=main, font.main=4, 
             legend.text=legend)

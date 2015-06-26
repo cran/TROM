@@ -10,6 +10,7 @@ Transcriptome Overlap Measure
 \code{select.associated.genes} \tab Select the associated genes of different biological samples \cr
 \code{select.associated.orthologs} \tab Select the associated genes of different biological samples among \cr
 \tab the genes with orthologs in the other species \cr
+\code{choose.z} \tab Choose the suggested threshold for Z-scores \cr
 \code{ws.trom} \tab Within-species transcriptome mapping  \cr
 \code{ws.trom.orthologs} \tab Within-species transcriptome mapping using only ortholog genes \cr
 \code{bs.trom} \tab Between-species transcriptome mapping \cr
@@ -23,13 +24,13 @@ Transcriptome Overlap Measure
 \tabular{ll}{
 Package: \tab TROM\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2015-04-07\cr
+Version: \tab 1.1\cr
+Date: \tab 2015-06-26\cr
 License: \tab GPL-2\cr
 }
 }
 \author{
-Jingyi Jessica Li, Wei Li
+Jingyi Jessica Li, Wei Vivian Li
 
 Maintainer: Jingyi Jessica Li \email{jli@stat.ucla.edu}
 }
@@ -50,7 +51,7 @@ load("dm_ce_orthologs.rda")
 dm_ce_trom <- bs.trom(sp1_gene_expr = dm_gene_expr, 
                       sp2_gene_expr = ce_gene_expr, 
                       sp1_sp2_orthologs = dm_ce_orthologs, z_thre=1.5, 
-                      FPKM_thre=1, provide=FALSE)
+                      provide=FALSE)
 heatmap.3(   dm_ce_trom,
              max_score = 6,
              Rowv = NULL,

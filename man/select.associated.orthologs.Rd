@@ -5,11 +5,12 @@
 Select the associated genes for biological samples of a species among the genes with orthologs in the other species
 }
 \description{
-\code{select.associated.orthologs()} finds the ids of associated genes of a species within orthologous genes based on criterion: Z-scores \eqn{\ge} \code{z_thre} and FPKM \eqn{\ge} \code{FPKM_thre} and saves the results to an .xlsx file.
+\code{select.associated.orthologs()} finds the ids of associated genes of a species within orthologous genes based on criterion: Z-scores \eqn{\ge} \code{z_thre} and saves the results to an .xlsx file.
 }
 \usage{
 select.associated.orthologs(sp_gene_expr, sp1_sp2_orthologs, 
-z_thre = 1.5, FPKM_thre = 1, i, save = TRUE, plot_distribution = FALSE)
+                            z_thre = 1.5, i, save = TRUE, 
+                            plot_distribution = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,10 +21,7 @@ a data frame containing gene expression estimates of the species; rows correspon
 a data frame containing ortholog gene pairs between species 1 and 2.
 }
   \item{z_thre}{
-a numeric value specifiying the Z-score threshold used to select associated genes, whose Z-scores \eqn{\ge} \code{z_thre}. Defaults to 1.5.
-}
-  \item{FPKM_thre}{
-a numeric value specifying FPKM threshold used to select associated genes, whose FPKM \eqn{\ge} \code{FPKM_thre}. Defaults to 1.
+a numeric value specifiying the Z-score threshold used to select associated genes, whose Z-scores \eqn{\ge} \code{z_thre}. Defaults to 1.5. This can be specified by users or calculated using \code{\link{choose.z}()}.
 }
   \item{i}{
 an integer specifying which column of \code{sp1_sp2_orthologs} the species corresponds to. 1 for the first column and 2 for the second column.
@@ -42,7 +40,7 @@ A data frame containing the associated genes within orthologous genes of each sa
 Li JJ., Huang H, Bickel PJ, & Brenner SE (2014). Comparison of \emph{D. melanogaster} and \emph{C. elegans} developmental stages, tissues, and cells by modENCODE RNA-seq data. \emph{Genome Research}, 24(7), 1086-1101.
 }
 \author{
-Jingyi Jessica Li, Wei Li
+Jingyi Jessica Li, Wei Vivian Li
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -61,6 +59,8 @@ load("dm_gene_expr.rda")
 load("dm_ce_orthologs.rda")
 dm_associated_orthologs <- select.associated.orthologs(sp_gene_expr = dm_gene_expr, 
                            sp1_sp2_orthologs = dm_ce_orthologs, z_thre = 1.5, 
-                           FPKM_thre = 1, 1, save = TRUE, plot_distribution = TRUE)}
+                           i = 1, save = TRUE, plot_distribution = TRUE)}
 }
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
 

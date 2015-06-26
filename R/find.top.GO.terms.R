@@ -39,6 +39,7 @@ function(gene_lists, all_genes, GOmappingfile, output_file,
     topGO_name <- sp_topGo[seq(1, 6*(length(associated_gene_list)-1)+1, by=6)]
     topGO_name <- unique(unlist(topGO_name))
     
+    
     p_value <- count_GO_terms(gene_lists=associated_gene_list, gene_pop=all_genes_w_GO, 
                               GO_pop=topGO_name, GO2geneID=sp_GO2geneID)
     
