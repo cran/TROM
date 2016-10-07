@@ -13,12 +13,13 @@ function(sp1_gene_expr=NULL, sp2_gene_expr=NULL, sp1_sp2_orthologs, z_thre=1.5,
     
     #    sp1_associated_idx <- sapply(2:ncol(sp1_ortholog_z), FUN=function(i) which(sp1_ortholog_z[,i]>z_thre ), simplify=FALSE)
     #    sp2_associated_idx <- sapply(2:ncol(sp2_ortholog_z), FUN=function(i) which(sp2_ortholog_z[,i]>z_thre ), simplify=FALSE)
+
     Ind1 <- apply(sp1_ortholog_data[,2:ncol(sp1_ortholog_data)], 1, function(r){
-      sum(unlist(r))>0
+        sum(unlist(r))>0   
     })
     sp1_associated_idx <- sapply(2:ncol(sp1_ortholog_z), FUN=function(i) which(sp1_ortholog_z[,i]>z_thre & Ind1), simplify=FALSE)
     Ind2 <- apply(sp2_ortholog_data[,2:ncol(sp2_ortholog_data)], 1, function(r){
-      sum(unlist(r))>0
+        sum(unlist(r))>0  
     })
     sp2_associated_idx <- sapply(2:ncol(sp2_ortholog_z), FUN=function(i) which(sp2_ortholog_z[,i]>z_thre & Ind2), simplify=FALSE)
     

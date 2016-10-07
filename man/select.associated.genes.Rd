@@ -30,6 +30,8 @@ a Boolean value specifying whether to output the distribution of the number of a
 a data frame containing the associated genes of every sample from the species. Every column in the data frame stores the associated gene IDs for the corresponding sample.
 }
 \references{
+Li WV, Chen Y and Li JJ (2016). TROM: A Testing-Based Method for Finding Transcriptomic Similarity of Biological Samples. Statistics in Biosciences. DOI: 10.1007/s12561-016-9163-y
+
 Li JJ, Huang H, Bickel PJ, & Brenner SE (2014). Comparison of \emph{D. melanogaster} and \emph{C. elegans} developmental stages, tissues, and cells by modENCODE RNA-seq data. \emph{Genome Research}, 24(7), 1086-1101.
 }
 \author{

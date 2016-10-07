@@ -3,7 +3,7 @@
 \alias{TROM}
 \docType{package}
 \title{
-Transcriptome Overlap Measure 
+Transcriptome Overlap Measure
 }
 \description{
 \tabular{ll}{
@@ -18,14 +18,14 @@ Transcriptome Overlap Measure
 \code{find.top.GO.terms} \tab Find top enriched GO terms \cr
 \code{find.top.GO.slim.terms}  \tab Find top enriched GO slim terms
 }
-  
+
 }
 \details{
 \tabular{ll}{
 Package: \tab TROM\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2015-06-26\cr
+Version: \tab 1.2\cr
+Date: \tab 2016-08-29\cr
 License: \tab GPL-2\cr
 }
 }
@@ -35,6 +35,8 @@ Jingyi Jessica Li, Wei Vivian Li
 Maintainer: Jingyi Jessica Li \email{jli@stat.ucla.edu}
 }
 \references{
+Li WV, Chen Y and Li JJ (2016). TROM: A Testing-Based Method for Finding Transcriptomic Similarity of Biological Samples. Statistics in Biosciences. DOI: 10.1007/s12561-016-9163-y
+
 Li JJ, Huang H, Bickel PJ, & Brenner SE (2014). Comparison of \emph{D. melanogaster} and \emph{C. elegans} developmental stages, tissues, and cells by modENCODE RNA-seq data. \emph{Genome Research}, 24(7), 1086-1101.
 }
 \keyword{ package }
@@ -48,9 +50,9 @@ Li JJ, Huang H, Bickel PJ, & Brenner SE (2014). Comparison of \emph{D. melanogas
 load("dm_gene_expr.rda")
 load("ce_gene_expr.rda")
 load("dm_ce_orthologs.rda")
-dm_ce_trom <- bs.trom(sp1_gene_expr = dm_gene_expr, 
-                      sp2_gene_expr = ce_gene_expr, 
-                      sp1_sp2_orthologs = dm_ce_orthologs, z_thre=1.5, 
+dm_ce_trom <- bs.trom(sp1_gene_expr = dm_gene_expr,
+                      sp2_gene_expr = ce_gene_expr,
+                      sp1_sp2_orthologs = dm_ce_orthologs, z_thre=1.5,
                       provide=FALSE)
 heatmap.3(   dm_ce_trom,
              max_score = 6,
