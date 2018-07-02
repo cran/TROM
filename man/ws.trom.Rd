@@ -67,7 +67,7 @@ Jingyi Jessica Li, Wei Vivian Li
 
 ## dm_gene_expr.rda and dm_tissue_expr.rda
 ## can be downloaded and unzipped from
-## http://www.stat.ucla.edu/~jingyi.li/packages/TROM/TROM_Rdata.zip.
+## http://www.stat.ucla.edu/~jingyi.li/packages/TROM/TROM_Rdata.zip
 
 \dontrun{
 load("dm_gene_expr.rda")

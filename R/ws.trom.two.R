@@ -111,7 +111,7 @@ function(sp1_gene_expr=NULL, sp2_gene_expr=NULL, sp1_sp2_orthologs, z_thre=1.5,
                                     stringsAsFactors=FALSE)
     colnames(overlap_genes_sp1) <- overlap_genes_names1
     
-    write.xlsx(overlap_genes_sp1, "within-species overlapping genes between sample pairs", colNames=TRUE)
+    write.xlsx(overlap_genes_sp1, "within-species overlapping genes between sample pairs.xlsx", colNames=TRUE)
     
     ############################## end output
   }

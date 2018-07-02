@@ -46,7 +46,7 @@ function(sp_gene_expr,z_thre=1.5, save = TRUE,
     sp_associated_genes_all<- data.frame(matrix(unlist(sp_associated_genes_all), ncol=ncol(sp_gene_expr)-1,
                                                 byrow=F))
     colnames(sp_associated_genes_all)=colnames(sp_gene_expr)[2:ncol(sp_gene_expr)]
-    write.xlsx(sp_associated_genes_all,"associated genes",colNames=TRUE)
+    write.xlsx(sp_associated_genes_all,"associated genes.xlsx",colNames=TRUE)
   }
   
   return(sp_associated_genes_all_raw)

@@ -6,7 +6,7 @@ function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5,  i, save = TRUE,
   
   sp_genes <- as.character(sp_ortholog_data[,1])
   
-  sp_ortholog_z<-sp.ortholog.z(sp1_sp2_orthologs,sp_gene_expr,1)
+  sp_ortholog_z<-sp.ortholog.z(sp1_sp2_orthologs,sp_gene_expr,i)
   Ind1 <- apply(sp_ortholog_data[,2:ncol(sp_ortholog_data)], 1, function(r){
     sum(unlist(r))>0
   })
@@ -40,7 +40,7 @@ function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5,  i, save = TRUE,
             cex.names=0.7, main=main, font.main=4, 
             legend.text=legend)
     dev.off()
-  }
+   }
   
   sp_specific_genes_w_orth_raw <- sp_specific_genes_w_orth
   
@@ -53,7 +53,7 @@ function(sp_gene_expr, sp1_sp2_orthologs, z_thre=1.5,  i, save = TRUE,
     sp_specific_genes_w_orth<- data.frame(matrix(unlist(sp_specific_genes_w_orth), ncol=ncol(sp_gene_expr)-1,
                                                  byrow=F))
     colnames(sp_specific_genes_w_orth)=colnames(sp_gene_expr)[2:ncol(sp_gene_expr)]
-    write.xlsx(sp_specific_genes_w_orth,"associated genes within ortholog genes",colNames=TRUE)
+    write.xlsx(sp_specific_genes_w_orth,"associated genes within ortholog genes.xlsx",colNames=TRUE)
   }
   
   return(sp_specific_genes_w_orth_raw)
